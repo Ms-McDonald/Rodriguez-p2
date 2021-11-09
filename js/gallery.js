@@ -45,7 +45,17 @@ var mCurrentIndex = 0;
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
-
+request.addEventListener("readystatechange", () => {
+  //console.log(request, request.readyState);
+  if (request.readyState === 4 && request.status === 200) {
+    const data = JSON.parse(request.responseText);
+    console.log(data);
+  } else if (request.readyState === 4) {
+    console.log("could not fetch the data");
+  }
+});
+request.open("GET", "../images.json");
+request.send();
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
@@ -85,7 +95,7 @@ function GalleryImage() {
   this.location;
   this.description;
   this.date;
-  this.image;
+  this.img;
 
 	//2. description of photo
 	//3. the date when the photo was taken
