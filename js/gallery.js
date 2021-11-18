@@ -34,7 +34,13 @@ function animate() {
 
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
-
+if (mCurrentIndex >= mImages.length) {
+  mCurrentIndex = 0;
+} else (mCurrentIndex < 0) {
+mCurrentIndex= mImages[mImages.length-1];
+}
+var mLastFrameTime=0
+mCurrentIndex +=1
 	//Access the img element and replace its source
   document.getElementById('photo').src=mImages[mCurrentIndex].imgPath;
 document.getElementByClassName('location').innerHTML = "Location: " + mImages[mCurrentIndex].location;
@@ -42,6 +48,7 @@ document.getElementByClassName('description').innerHTML = "Description: " + mIma
 document.getElementByClassName('date').innerHTML = "Date: " + mImages[mCurrentIndex].Date;
 	//with a new image from your images array which is loaded
 	//from the JSON string
+
 	console.log('swap photo');
 }
 
@@ -85,7 +92,7 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 
 $(document).ready( function() {
 
-	// This initially hides the photos' metadata information
+	// This initially hides the p hotos' metadata information
 	$('.details').eq(0).hide();
 
 });
@@ -107,3 +114,9 @@ function GalleryImage() {
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
   this.img;
 }
+
+//for 2.4//
+function iterateJSON(mJson){
+    for (let x=0; x < mJson.images.length; x++)
+}
+  mImages[x] = new
