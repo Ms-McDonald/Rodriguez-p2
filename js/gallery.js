@@ -118,5 +118,9 @@ function GalleryImage() {
 //for 2.4//
 function iterateJSON(mJson){
     for (let x=0; x < mJson.images.length; x++)
+    mImages[x] = newGalleryObject
+    =imgmJson.images[x].imgLocation;
+    =imgmJson.images[x].imgLocation;
+    =imgmJson.images[x].imgLocation;
+    =imgmJson.images[x].imgLocation;
 }
-  mImages[x] = new
